@@ -1,0 +1,10 @@
+using System;
+public class IAmHero {
+    public IAmHero () { }
+// Remove the line hidden pragma to get EnC Lambda Info for this method
+#line hidden
+    public void DoSomething() {
+        Func<string,string> fn = static (s) => s + "!";
+        Console.WriteLine(fn ("Hello, I am a hero"));
+    }
+}
