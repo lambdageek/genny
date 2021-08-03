@@ -11,8 +11,10 @@ namespace Sample
             var assm = typeof(Program).Assembly;
             var ty = assm.GetType("IAmHero");
             Console.WriteLine (fn($"Got {ty.FullName}"));
-            var mi = ty.GetMethod("DoSomething", BindingFlags.Public | BindingFlags.Static);
-            mi.Invoke(null, Array.Empty<object>());
+            var ci = ty.GetConstructor(Array.Empty<Type>());
+            var obj = ci.Invoke(Array.Empty<object>());
+            var mi = ty.GetMethod("DoSomething", BindingFlags.Public | BindingFlags.Instance);
+            mi.Invoke(obj, Array.Empty<object>());
         }
     }
 }

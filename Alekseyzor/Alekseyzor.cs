@@ -14,8 +14,9 @@ namespace Alekseyzor
             context.AddSource ("myContent", @"
 using System;
 public class IAmHero {
-    public static void DoSomething() {
-        Func<string,string> fn = (s) => s + ""!"";
+    public IAmHero () { }
+    public void DoSomething() {
+        Func<string,string> fn = static (s) => s + ""!"";
         Console.WriteLine(fn (""Hello, I am a hero""));
     }
 }
